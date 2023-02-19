@@ -1,6 +1,6 @@
-# Make some awesome django projects, put them in your directory and create a pull request. and DONE ✅
+## Make some awesome django projects, put them in your directory and create a pull request. and DONE ✅
 
-## Steps to Raise and get your PR Merged successfully.
+### Steps to Raise and get your PR Merged successfully.
 1.  👉 Fork this repository
 2.  👉 Clone the repository into your local system
 3.  👉 Create a branch ```projectname-username```, e.g. - ```git checkout -b ChatApp-thinkswell```
