@@ -1,1 +1,0 @@
-# Social Network using django
