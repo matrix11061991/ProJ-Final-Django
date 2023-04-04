@@ -5,9 +5,15 @@
 {% block content %}
 <div class="container">
 
+	<div class="row mt-5">
+		<div class="col-md-5 col-sm-6">
+			<a href="{% url 'post-detail' object.pk %}" class="btn btn-light">Back To Post</a>
+		</div>
+	</div>
+
 	<div class="row justify-content-center mt-3">
 		<div class="col-md-5 col-sm-12 border-bottom">
-			<h5>Add Post</h5>
+			<h5>Update Your Post</h5>
 		</div>
 	</div>
 	<div class="row justify-content-center mt-3 mb-5">
@@ -21,15 +27,5 @@
 			</form>
 		</div>
 	</div>
-
-	{% for post in post_list %}
-	<div class="row justify-content-center mt-3">
-		<div class="col-md-5 col-sm-12 border-bottom position-relative">
-			<p><strong>{{ post.author }}</strong> {{ post.created_on }}</p>
-			<p>{{post.body}}</p>
-			<a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
-		</div>
-	</div>
-	{% endfor %}
 </div>
 {% endblock content %}
