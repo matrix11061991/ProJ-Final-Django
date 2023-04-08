@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5 mb-5 shadow">
+        <div class="col lg-6 shadow p-4">
+            <h3>Creer un compte</h3>
+            <form  method= "POST">
+               {% csrf_token %} 
+              {{ form.as_p }}
+                <!--<div class="form-group">
+                  <label for="exampleInputText1">Pseudo</label>
+                  <input type="text" class="form-control" id="username">
+
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputText1">Nom</label>
+                  <input type="text" class="form-control" id="nom">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Prenom</label>
+                    <input type="text" class="form-control" id="prenom">
+                   
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Adresse e-mail</label>
+                    <input type="email" class="form-control" id="mail" aria-describedby="emailHelp">
+                   
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Mot de passe</label>
+                  <input type="password" class="form-control" id="mdp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Verifiez votre Mot de passe</label>
+                    <input type="password" class="form-control" id="mdpverif">
+                  </div>
+                <div class="form-group form-check">
+                  <label class="form-check-label" for="exampleCheck1">Enregistrer le mot de passe</label>
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+                  <button type="submit" class="btn btn-primary">creer</button>
+                </div>
+              
+              </form>
+        </div>
+        <div class="col lg-6">
+            <img src="https://img.passeportsante.net/1200x675/2022-04-15/shutterstock-1902392836.webp" alt="" class=" shadow img-fluid img-responsive">
+        </div>
+    </div>
+</div>
+{% endblock %}
