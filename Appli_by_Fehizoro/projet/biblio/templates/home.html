@@ -1,0 +1,11 @@
+{% extends "base_accueil.html" %}
+{% block content %}
+<div class="card" style="width: 18rem;">
+  <img src="./images/livres/esmia.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Voir La liste des Livres disponible</p>
+    <a class="btn btn-primary" href="{% url 'liste_livres'%}" class="nav-link active" aria-current="page">Liste des livres</a>
+  </div>
+</div>
+{%endblock%}
+    
