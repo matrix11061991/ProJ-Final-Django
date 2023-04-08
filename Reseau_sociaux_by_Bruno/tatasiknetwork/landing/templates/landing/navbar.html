@@ -17,7 +17,7 @@
           <div class="input-group">
             <span class="input-group-text" id="basic-addon1">@</span>
             <input type="text" class="form-control" placeholder="abc" aria-label="Username" aria-describedby="basic-addon1" name="query" value="{{ request.GETquery }}">
-            <button style="border:none; background-color: transparent; box-shadow: none;"><i class="fas fa-search"></i></button>
+            <button class="btn-no-border-and-color"><i class="fas fa-search"></i>rechercher</button>
           </div>
         </form>
         {% if user.is_authenticated %}

@@ -1,0 +1,8 @@
+.btn-no-border-and-color{
+	border:none;
+	background-color: transparent;
+	box-shadow: none;
+}
+.text-no-decoration{
+	text-decoration:none;
+}

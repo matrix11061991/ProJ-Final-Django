@@ -25,14 +25,14 @@
 				<form method="POST" action="{% url 'like' post.pk %}">
 					{% csrf_token %}
 					<input type="hidden" name="next" value="{{request.path}}">
-					<button style="background-color:transparent ; border: none; box-shadow: none;" type="submit">
+					<button class="btn-no-border-and-color" type="submit">
 						<i class="far fa-thumbs-up"><span> {{post.likes.all.count}}</span></i>
 					</button>
 				</form>
 				<form method="POST" action="{% url 'dislike' post.pk %}">
 					{% csrf_token %}
 					<input type="hidden" name="next" value="{{request.path}}">
-					<button style="background-color:transparent ; border: none; box-shadow: none;" type="submit">
+					<button class="btn-no-border-and-color" type="submit">
 						<i class="far fa-thumbs-down"></i><span> {{post.dislikes.all.count}}</span>
 					</button>
 				</form>
@@ -46,7 +46,7 @@
 				{% csrf_token %}
 				{{form | crispy}}
 				<div class="d-grid gap-2">
-					<button class="btn btn-info mt-3">Comment 👩‍💻👨‍💻</button>
+					<button class="btn btn-info mt-3">Comment</button>
 				</div>
 			</form>
 		</div>
