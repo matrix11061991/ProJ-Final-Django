@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5 mb-5 shadow">
+        <div class="col lg-6 shadow p-4">
+            <h3>Veuillez vous connecter</h3>
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Pseudo</label>
+                  <input type="text" class="form-control" id="pseudolog" >
+                 
+                </div>
+                <div class="form-group"> 
+                  <label for="exampleInputPassword1">Mot de passe</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Enregistrer le mot de passe</label>
+                </div>
+               
+                <button type="submit" class="btn btn-primary">connecter</button>
+               <a href="{%url 'register'%}">Vous avez pas de compte?</a>
+              </form>
+        </div>
+        <div class="col lg-6">
+            <img src="https://img.passeportsante.net/1200x675/2022-04-15/shutterstock-1902392836.webp" alt="" class=" shadow img-fluid img-responsive mt-3">
+        </div>
+    </div>
+</div>
+{% endblock %}
