@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO app</title>
+  </head>
+  <style>
+    body,
+    html {
+      background-color: #251a24;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      color: white;
+      font-family: "Raleway", sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      user-select: none;
+    }
+    .wrapper {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .empty-list {
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      min-height: 40vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    :root {
+      --border-color: rgba(128, 128, 128, 0.364);
+      --primary: rgb(36, 107, 231);
+      --left: rgb(255, 0, 64);
+      --right: rgb(128, 15, 176);
+    }
+
+    .button-wrapper {
+      padding: 0.5rem 0;
+    }
+
+    .button-primary {
+      /* background-color: var(--primary); */
+      background-color: var(--primary);
+      padding: 0.8rem 1rem;
+      border-radius: 5px;
+      transition: all 0.5ms;
+      color: white;
+      border: none;
+    }
+
+    .button-primary:hover {
+      opacity: 80%;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5rem;
+      border-bottom: 1px solid var(--border-color);
+      /* background-color: var(--primary); */
+      background-color: var(--primary);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .navbar * {
+      user-select: none;
+    }
+
+    .logo {
+      font-weight: 900;
+    }
+
+    .container {
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-color);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 6rem auto;
+      padding: 1rem;
+    }
+
+    .todo-list {
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-radius: 5px;
+    }
+
+    .task {
+      border: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .task-wrapper {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .delete-link {
+      font-size: 1.5rem;
+    }
+
+    .delete-link:hover {
+      color: rgb(205, 31, 31);
+    }
+
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    form {
+      border-radius: 5px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    form p {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .search-form {
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      border: none;
+      padding: 0;
+    }
+
+    .search-form input[type="submit"] {
+      /* background-color: var(--primary); */
+      background-color: var(--primary);
+      border: none;
+      border-radius: 0;
+      color: white;
+    }
+    form input,
+    form textarea {
+      padding: 0.5rem 1rem;
+      color: #251a24;
+    }
+
+    .form-button {
+      /* background-color: var(--primary); */
+      background-color: var(--primary);
+      border: none;
+      color: white;
+      padding: 0.8rem 1rem;
+      border-radius: 5px;
+      transition: all 0.5ms;
+      cursor: pointer;
+    }
+
+    .form-button:hover {
+      opacity: 80%;
+    }
+
+    .not-completed-icon {
+      background-color: rgb(115, 113, 112);
+      border-radius: 50%;
+      height: 2rem;
+      width: 2rem;
+    }
+
+    .completed-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(125, 225, 12);
+      height: 2rem;
+      width: 2rem;
+      border-radius: 50%;
+    }
+  </style>
+  <body>
+    <header class="navbar">
+      <div class="logo">TODOAPP</div>
+      {% if request.user.is_authenticated %}
+      <div class="wrapper">
+        <p>{{request.user|title}}</p>
+        <span>|</span>
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+      {% else %}
+      <div class="wrapper">
+        <a href="{% url 'login_page' %}">Login</a>
+        <span>|</span>
+        <a href="{% url 'register_page' %}">Register</a>
+      </div>
+      {% endif %}
+    </header>
+    <div class="container">{% block content %}{% endblock content %}</div>
+  </body>
+</html>
