@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+  </head>
+  <style>
+    body,
+    html {
+      background-color: #251a24;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      color: white;
+      font-family: "Raleway", sans-serif;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <div class="container">{% block content %} {% endblock content%}</div>
+  </body>
+</html>

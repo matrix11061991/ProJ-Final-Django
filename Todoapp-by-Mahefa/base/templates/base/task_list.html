@@ -1,0 +1,48 @@
+{% extends 'base/main.html' %} {% block content%}
+
+<h1>My TODO list</h1>
+<main class="todo-list">
+  <div class="task-list">
+    <header class="task-list-header">
+      <h2>My tasks</h2>
+    </header>
+    <form method="GET" class="search-form">
+      {% csrf_token %}
+      <input type="text" name="search-area" />
+      <input type="submit" value="Search" />
+    </form>
+    <div class="tasks">
+      {% for task in tasks %}
+      <div class="task">
+        {% if task.completed %}
+        <div class="task-wrapper">
+          <span class="completed-icon"> &check; </span>
+          <a href="{% url 'edit_task' task.id %}" class="task-title"
+            ><s>{{ task.title }}</s></a
+          >
+        </div>
+        {% else %}
+        <div class="task-wrapper">
+          <span class="not-completed-icon"></span>
+          <a href="{% url 'edit_task' task.id %}" class="task-title"
+            >{{ task.title }}</a
+          >
+        </div>
+        {% endif %}
+        <div class="actions">
+          <a href="{% url 'delete_task' task.id %}" class="delete-link"
+            >&#215;</a
+          >
+        </div>
+      </div>
+      {% empty %}
+      <div class="empty-list"><h3>No task found</h3></div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+<div class="button-wrapper">
+  <a href="{% url 'add_task' %}" class="button-primary">&#43; Add a new task</a>
+</div>
+
+{% endblock content %}

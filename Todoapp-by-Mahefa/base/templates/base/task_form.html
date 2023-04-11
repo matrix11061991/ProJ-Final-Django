@@ -1,0 +1,8 @@
+{% extends 'base/main.html' %} {% block content %}
+<a href="{% url 'tasks'%}">&#171; Go back</a>
+<form method="POST" action="">
+  {% csrf_token %} {{form.as_p}}
+  <input type="submit" value="GO" class="form-button" />
+</form>
+
+{% endblock content %}
