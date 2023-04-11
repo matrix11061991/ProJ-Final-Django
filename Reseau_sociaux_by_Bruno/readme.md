@@ -22,3 +22,6 @@
 	-	commenter// delet
 	-	profil // edit, followers(Suiveurs)
 	-	recherche utilisateur
+
+# il aura d'autre fonctionnalite a venir
+	__________________________________
