@@ -7,12 +7,13 @@ class PostForm(forms.ModelForm):
 		label='',
 		widget=forms.Textarea(attrs={
 			'rows': '3',
-			'placeholder': 'Say Something ...'
+			'placeholder': 'dit quelque chose ...'
 		}))
+	image = forms.ImageField(required=False)
 
 	class Meta:
 		model = Post
-		fields = ['body']
+		fields = ['body', 'image']
 
 
 class CommentForm(forms.ModelForm):
@@ -20,7 +21,7 @@ class CommentForm(forms.ModelForm):
 		label='',
 		widget=forms.Textarea(attrs={
 			'rows': '3',
-			'placeholder': 'Add comment...'
+			'placeholder': 'commenter...'
 		}))
 
 	class Meta:
