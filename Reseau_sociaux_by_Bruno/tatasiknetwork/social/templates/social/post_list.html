@@ -12,7 +12,7 @@
 	</div>
 	<div class="row justify-content-center mt-3 mb-5">
 		<div class="col-md-5 col-sm-12">
-			<form method="POST">
+			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{form | crispy}}
 				<div class="d-grid gap-2">
@@ -25,8 +25,15 @@
 	{% for post in post_list %}
 	<div class="row justify-content-center mt-3">
 		<div class="col-md-5 col-sm-12 border-bottom">
-			<p><a  class="text-primary" href="{% url 'profile' post.author.profile.pk %}">@{{ post.author }}</a>{{ post.created_on }}</p>
+			<div>
+				<a href="{% url 'profile' post.author.profile.pk %}"></a>
+				<img src="{{ post.author.profile.picture.url }}" class="rounded-circle post-img" height="30" width="30">
+				<p class="post-text"><a  class="text-primary" href="{% url 'profile' post.author.profile.pk %}">@{{ post.author }}</a> {{ post.created_on }}</p>
+			</div>
 			<div class="position-relative">
+				{% if post.image %}
+					<img src="{{ post.image.url }}" class="post-image"/>
+				{% endif %}
 				<p>{{post.body}}</p>
 				<a href="{% url 'post-detail' post.pk %}" class="stretched-link">Detaile</a>
 			</div>
