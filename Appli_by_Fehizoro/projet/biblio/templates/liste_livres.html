@@ -1,0 +1,15 @@
+{% extends "base_accueil.html" %}
+
+{% block content %}
+<h1>Liste des livres</h1>
+<div class="card" style="width: 18rem;">
+<ul>
+    {% for livre in livres %}
+        <li class ="text-dark"><a href="{% url 'detail_livres' slug=livre.slug %}">{{ livre.titre }}</a> </li>
+    {% empty %}
+        <li>Aucun livre disponible pour le moment.</li>
+    {% endfor %}
+    </ul>
+</div>
+</div>
+{% endblock %}
